@@ -62,7 +62,8 @@ RUN     cd gstreamill && \
         ./configure --prefix=/usr && \
         make && \
         make install && \
-	cd / && rm -rf gstreamill
+	cd /
+#	cd / && rm -rf gstreamill
 
 CMD sudo mount -o remount -o size=10240M /dev/shm && gstreamill -d 
 
