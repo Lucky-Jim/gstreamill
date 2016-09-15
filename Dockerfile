@@ -1,6 +1,6 @@
 FROM ubuntu:14.04.2
 
-MAINTAINER Zhang Ping, dqzhangp@163.com
+MAINTAINER Tom Burnley(Lucky Jim), tburnley@cisco.com 
 
 # install required packages
 RUN apt-get update && \
@@ -54,7 +54,7 @@ RUN apt-get install -y yasm && \
 
 # install gsreamill
 RUN apt-get install -y libaugeas-dev && \
-        git clone https://github.com/i4tv/gstreamill.git
+        git clone https://github.com/Lucky-Jim/gstreamill.git
 RUN     cd gstreamill && \
         git pull && \
         git checkout v0.7.9 && \
@@ -64,7 +64,7 @@ RUN     cd gstreamill && \
         make install && \
 	cd / && rm -rf gstreamill
 
-CMD mount -o remount -o size=10240M /dev/shm && gstreamill -d 
+CMD sudo mount -o remount -o size=10240M /dev/shm && gstreamill -d 
 
 EXPOSE 20118
 EXPOSE 20119
