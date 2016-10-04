@@ -65,7 +65,7 @@ RUN     cd gstreamill && \
 	cd /
 #	cd / && rm -rf gstreamill
 
-CMD sudo mount -o remount -o size=10240M /dev/shm && gstreamill -d 
+CMD /gstreamill/src/gstreamill -d
 
 EXPOSE 20118
 EXPOSE 20119
